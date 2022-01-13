@@ -7,7 +7,7 @@ class CommentTableViewCell: UITableViewCell {
     
     let authorLabel = UILabel()
     let contentLabel = UILabel()
-    let etcButton = UILabel()
+    let moreButton = UILabel()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -36,7 +36,7 @@ class CommentTableViewCell: UITableViewCell {
             $0.trailing.equalTo(self).offset(-5)
         }
         
-        etcButton.snp.makeConstraints {
+        moreButton.snp.makeConstraints {
             $0.top.equalTo(self).offset(5)
             $0.trailing.equalTo(self).offset(-5)
             $0.width.equalTo(30)

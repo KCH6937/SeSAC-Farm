@@ -18,9 +18,11 @@
 		DF000A6427848E38001FF38B /* ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF000A6327848E38001FF38B /* ViewRepresentable.swift */; };
 		DF000A6727851C73001FF38B /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = DF000A6627851C73001FF38B /* Then */; };
 		DFBD517A279001EF00605375 /* WriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBD5179279001EF00605375 /* WriteViewModel.swift */; };
-		DFBD517C27900F0300605375 /* Write.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBD517B27900F0300605375 /* Write.swift */; };
 		DFBD517E279019FF00605375 /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBD517D279019FF00605375 /* CommentViewController.swift */; };
 		DFBD518027901AAB00605375 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBD517F27901AAB00605375 /* CommentTableViewCell.swift */; };
+		DFBD518227902FB500605375 /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBD518127902FB400605375 /* CommentViewModel.swift */; };
+		DFBD5184279057FB00605375 /* ToastMessage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBD5183279057FB00605375 /* ToastMessage+Extension.swift */; };
+		DFBD5188279097E100605375 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFBD5187279097E100605375 /* Comment.swift */; };
 		DFFBBE1127866BD100E1082B /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBBE1027866BD100E1082B /* RegisterView.swift */; };
 		DFFBBE1327866D3000E1082B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBBE1227866D3000E1082B /* RegisterViewController.swift */; };
 		DFFBBE15278674F000E1082B /* PostBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFBBE14278674F000E1082B /* PostBoardViewController.swift */; };
@@ -51,9 +53,11 @@
 		DF000A5E2784220A001FF38B /* FirstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstView.swift; sourceTree = "<group>"; };
 		DF000A6327848E38001FF38B /* ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewRepresentable.swift; sourceTree = "<group>"; };
 		DFBD5179279001EF00605375 /* WriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteViewModel.swift; sourceTree = "<group>"; };
-		DFBD517B27900F0300605375 /* Write.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Write.swift; sourceTree = "<group>"; };
 		DFBD517D279019FF00605375 /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
 		DFBD517F27901AAB00605375 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		DFBD518127902FB400605375 /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
+		DFBD5183279057FB00605375 /* ToastMessage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ToastMessage+Extension.swift"; sourceTree = "<group>"; };
+		DFBD5187279097E100605375 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		DFFBBE1027866BD100E1082B /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
 		DFFBBE1227866D3000E1082B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		DFFBBE14278674F000E1082B /* PostBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBoardViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +132,7 @@
 				DFFBBE322786C1D400E1082B /* RegisterViewModel.swift */,
 				DFFBBE392786DB5700E1082B /* PostBoardViewModel.swift */,
 				DFBD5179279001EF00605375 /* WriteViewModel.swift */,
+				DFBD518127902FB400605375 /* CommentViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -149,7 +154,7 @@
 				DFFBBE28278697C300E1082B /* User.swift */,
 				DF000A5C27841ED3001FF38B /* Observable.swift */,
 				DFFBBE372786D93300E1082B /* Board.swift */,
-				DFBD517B27900F0300605375 /* Write.swift */,
+				DFBD5187279097E100605375 /* Comment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				DFFBBE3C2786EC3700E1082B /* Alert+Extension.swift */,
+				DFBD5183279057FB00605375 /* ToastMessage+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -279,6 +285,7 @@
 				DFFBBE382786D93300E1082B /* Board.swift in Sources */,
 				DFFBBE2327867DDC00E1082B /* WriteView.swift in Sources */,
 				DF000A5F2784220A001FF38B /* FirstView.swift in Sources */,
+				DFBD5184279057FB00605375 /* ToastMessage+Extension.swift in Sources */,
 				DF000A4D2784168E001FF38B /* FirstViewController.swift in Sources */,
 				DFFBBE1327866D3000E1082B /* RegisterViewController.swift in Sources */,
 				DFBD517E279019FF00605375 /* CommentViewController.swift in Sources */,
@@ -287,7 +294,7 @@
 				DFFBBE2B2786AC0A00E1082B /* LoginViewModel.swift in Sources */,
 				DFFBBE332786C1D400E1082B /* RegisterViewModel.swift in Sources */,
 				DFFBBE2127867DC600E1082B /* WriteViewController.swift in Sources */,
-				DFBD517C27900F0300605375 /* Write.swift in Sources */,
+				DFBD518227902FB500605375 /* CommentViewModel.swift in Sources */,
 				DFFBBE1D27867BC400E1082B /* LoginView.swift in Sources */,
 				DF000A4B2784168E001FF38B /* SceneDelegate.swift in Sources */,
 				DFFBBE1127866BD100E1082B /* RegisterView.swift in Sources */,
@@ -296,6 +303,7 @@
 				DF000A6427848E38001FF38B /* ViewRepresentable.swift in Sources */,
 				DFFBBE3A2786DB5700E1082B /* PostBoardViewModel.swift in Sources */,
 				DFFBBE1F27867C6C00E1082B /* LoginViewController.swift in Sources */,
+				DFBD5188279097E100605375 /* Comment.swift in Sources */,
 				DFFBBE15278674F000E1082B /* PostBoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

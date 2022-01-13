@@ -128,7 +128,7 @@ class APIService {
             
         }.resume()
     }
-    
+
     static func writeBoard(token: String, text: String, completion: @escaping(APIError?) -> Void) {
         let url = URL(string: "http://test.monocoding.com:1231/posts")!
         
@@ -143,7 +143,7 @@ class APIService {
                 return
             }
             
-            guard let data = data else {
+            guard data != nil else {
                 completion(.noData)
                 return
             }
@@ -156,6 +156,48 @@ class APIService {
             guard response.statusCode == 200 else {
                 completion(.failed)
                 return
+            }
+            
+        }.resume()
+    }
+    
+    static func inquireComment(token: String, postId: Int, completion: @escaping (CommentInfo?, APIError?) -> Void) {
+        
+        let url = URL(string: "http://test.monocoding.com:1231/comments?post=\(postId)")!
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+        print("호출됨 코멘트")
+            guard error == nil else {
+                completion(nil, .failed)
+                return
+            }
+            
+            guard data != nil else {
+                completion(nil, .noData)
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                completion(nil, .invalidResponse)
+                return
+            }
+            
+            guard response.statusCode == 200 else {
+                completion(nil, .failed)
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                let commentData = try decoder.decode(CommentInfo.self, from: data!)
+                print(commentData)
+                completion(commentData, nil)
+            } catch {
+                completion(nil, .invalidData)
             }
             
         }.resume()

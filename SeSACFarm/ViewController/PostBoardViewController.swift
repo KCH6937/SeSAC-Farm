@@ -9,7 +9,9 @@ class PostBoardViewController: UIViewController, ViewRepresentable {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         view.backgroundColor = .white
+        
         formatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
         
         boardTableView.delegate = self
@@ -17,19 +19,21 @@ class PostBoardViewController: UIViewController, ViewRepresentable {
         boardTableView.translatesAutoresizingMaskIntoConstraints = false
         boardTableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
         
-        postBoardViewModel.fetchBoard()
-        self.postBoardViewModel.boardInfo.bind { boardInfo in
-            DispatchQueue.main.async{
-                self.boardTableView.reloadData()
-            }
-            
-        }
-        
+        setEvent()
         setupView()
         setupConstraints()
         setNavLayout()
 //        print(self.postBoardViewModel.boardInfo.value)
         
+    }
+    
+    func setEvent() {
+        postBoardViewModel.fetchBoard()
+        self.postBoardViewModel.boardInfo.bind { boardInfo in
+            DispatchQueue.main.async {
+                self.boardTableView.reloadData()
+            }
+        }
     }
     
     func setNavLayout() {
@@ -100,6 +104,7 @@ class PostBoardViewController: UIViewController, ViewRepresentable {
 }
 
 extension PostBoardViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postBoardViewModel.boardInfo.value.count
     }
@@ -112,8 +117,7 @@ extension PostBoardViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.authorLabel.text = row.user?.username
         cell.contentLabel.text = row.text
-        
-        cell.postDateLabel.text = getDate(dateStr: row.createdAt ?? "noData")
+        cell.postDateLabel.text = getDate(dateStr: row.createdAt ?? "noDate")
         
         if row.comments!.count == 0 {
             cell.commentButton.setTitle("댓글 쓰기", for: .normal)
@@ -125,7 +129,15 @@ extension PostBoardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let commentViewController = CommentViewController()
         
+        commentViewController.postId = postBoardViewModel.boardInfo.value[indexPath.row].id!
+        commentViewController.postInfo = [
+            getDate(dateStr: postBoardViewModel.boardInfo.value[indexPath.row].createdAt ?? "no Date"),
+            postBoardViewModel.boardInfo.value[indexPath.row].text ?? "no Data"
+        ]
+        
+        self.navigationController?.pushViewController(commentViewController, animated: true)
     }
     
 }
