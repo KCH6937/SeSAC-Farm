@@ -26,7 +26,7 @@ class PostTableViewCell: UITableViewCell {
             addSubview($0)
         }
         
-        authorLabel.backgroundColor = .lightGray
+        authorLabel.backgroundColor = .systemGray6
         authorLabel.textColor = .darkGray
         authorLabel.layer.cornerRadius = 10
         authorLabel.font = UIFont.systemFont(ofSize: 16)
@@ -40,7 +40,7 @@ class PostTableViewCell: UITableViewCell {
         
         commentButton.backgroundColor = .systemGreen
         commentButton.setTitleColor(.white, for: .normal)
-        commentButton.titleLabel?.font = UIFont.systemFont(ofSize: 20)
+        commentButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
     }
 
     func setupConstraints() {
@@ -67,9 +67,6 @@ class PostTableViewCell: UITableViewCell {
             $0.leading.equalTo(self)
             $0.trailing.equalTo(self)
         }
-        
-        
-        
         
     }
 }

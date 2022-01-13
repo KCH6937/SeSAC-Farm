@@ -4,7 +4,7 @@ import Then
 
 class WriteView: UIView, ViewRepresentable {
 
-    let writeTextView = UITextView().then {
+    var writeTextView = UITextView().then {
         $0.textColor = .black
         $0.font = UIFont.systemFont(ofSize: 20)
     }

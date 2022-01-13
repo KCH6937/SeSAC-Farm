@@ -5,8 +5,6 @@ class RegisterViewController: UIViewController {
     let registerView = RegisterView()
     let registerViewModel = RegisterViewModel()
     
-    let customAlert = CustomAlert()
-    
     override func loadView() {
         self.view = registerView
     }
@@ -71,19 +69,19 @@ class RegisterViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @objc func registerButtonClicked() { // alert 처리 필요
+    @objc func registerButtonClicked() {
         print(registerViewModel.passwordConfirm.value)
         
         if registerViewModel.email.value == "" || registerViewModel.password.value == "" || registerViewModel.username.value == "" || registerViewModel.passwordConfirm.value == "" {
-            self.customAlert.oneOptionAlert(title: "알림", message: "빈 칸을 모두 입력해주세요", buttonTitle: "확인")
+            oneOptionAlert(title: "알림", message: "빈 칸을 모두 입력해주세요", buttonTitle: "확인")
             
         } else if registerViewModel.passwordConfirm.value != registerViewModel.password.value {
-            self.customAlert.oneOptionAlert(title: "알림", message: "비밀번호가 다릅니다", buttonTitle: "확인")
+            oneOptionAlert(title: "알림", message: "비밀번호가 다릅니다", buttonTitle: "확인")
             
         } else {
             registerViewModel.postUserRegister {
                 DispatchQueue.main.async {
-                    self.customAlert.oneOptionAlert(title: "알림", message: "회원가입 완료!!\n\(self.registerViewModel.username.value) 가입을 축하드립니다", buttonTitle: "닫기")
+                    self.oneOptionAlert(title: "알림", message: "회원가입 완료!!\n\(self.registerViewModel.username.value) 가입을 축하드립니다", buttonTitle: "닫기")
                     self.navigationController?.popViewController(animated: true)
                     self.navigationController?.pushViewController(LoginViewController(), animated: true)
                 }

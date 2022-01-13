@@ -1,6 +1,6 @@
 import UIKit
 
-class CustomAlert: UIAlertController {
+extension UIViewController {
     
     func oneOptionAlert(title: String, message: String, buttonTitle: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
